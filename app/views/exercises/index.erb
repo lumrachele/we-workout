@@ -1,3 +1,8 @@
+<%= form_tag(exercises_path, method: :get) do %>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "Search"%>
+<% end %>
+
 <% @exercises.each do |exercise| %>
 
 <p><%= link_to exercise.name, exercise_path(exercise) %> </p>
