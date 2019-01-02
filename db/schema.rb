@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_26_180631) do
+ActiveRecord::Schema.define(version: 2019_01_02_160921) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 2018_12_26_180631) do
   create_table "exercises", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.string "image", default: "/default_exercise.jpg"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "exercises_workouts", force: :cascade do |t|
+    t.integer "exercise_id"
+    t.integer "workout_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -46,7 +54,6 @@ ActiveRecord::Schema.define(version: 2018_12_26_180631) do
     t.integer "sets"
     t.string "notes"
     t.integer "user_id"
-    t.integer "exercise_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,7 +1,9 @@
 class ExercisesController < ApplicationController
+  #before_action: :current_workout, only: [:index, :show]
 
   def index
     @categories = Category.all
+    @workout = Workout.find_by(id: params[:workout_id])
 
     if params[:category_id] && params[:search]
       category = Category.find(params[:category_id])

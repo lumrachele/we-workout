@@ -1,16 +1,25 @@
-<%= flash[:success] %>
+<% if flash[:success] %>
+  <%= flash[:success] %>
+<% end %>
 
 <h2><%= @workout.title %></h2>
 <h4>by <%= @workout.user.first_name %></h4>
 
 <h5><%= pluralize(@workout.sets, "Set") %></h5>
 
-<%= button_to "Add an exercise", exercises_path, :method => "get" %>
+<!-- The workout will display all of the exercises -->
 <ul>
 <% @workout.exercises.each do |exercise| %>
-  <li>link_to exercise.name, exercise</li> <!-- links to indiv exercise -->
+  <li><%= exercise.name %></li>
 <% end %>
 </ul>
 
+<br>
 
+<h4>Notes:</h4>
 <%= @workout.notes %>
+
+<%= button_to "edit this workout", edit_workout_path, :method => "get" %>
+
+
+<!-- Will have an option to edit the workout, or delete it-->

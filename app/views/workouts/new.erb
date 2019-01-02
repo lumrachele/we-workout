@@ -1,18 +1,20 @@
 <%= form_for @workout do |f|%>
-<%= f.label "Title:" %>
-<%= f.text_field :title %><br>
+  <%= f.label "Title:" %>
+  <%= f.text_field :title %><br>
 
-<!-- This will become available only in the show page, accessible through update -->
-<%= f.label "Sets:" %>
-<%= f.number_field :sets %><br>
+  <!-- This will become available only in the show page, accessible through update -->
+  <%= f.label "Sets:" %>
+  <%= f.number_field :sets %><br>
 
 
-<!-- This will become available only in the show page, accessible through update -->
-<%= f.label "Notes:" %>
-<%= f.text_area :notes %><br>
+  <!-- This will become available only in the show page, accessible through update -->
+  <%= f.label "Notes:" %>
+  <%= f.text_area :notes %><br>
 
-<%= f.submit "Create Workout"%>
+  <%= f.submit "Create Workout"%>
 
-<p><%= flash[:notice] %></p>
+  <% if flash[:notice]%>
+    <p><%= flash[:notice] %></p>
+    <% end %>
 
 <% end %>

@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
     @user = (User.find_by(id: session[:user_id]) || User.new)
   end
 
+  def current_workout
+    @workout = (Workout.find_by(id: session[:workout_id]) || Workout.new)
+  end
 
 
 private

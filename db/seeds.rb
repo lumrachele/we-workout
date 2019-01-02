@@ -15,9 +15,9 @@
 # end
 
 #Users
-User.create(first_name: "Rachel", last_name: "Lum", email: "rlum894@gmail.com", password_digest: "potato")
-User.create(first_name: "Bob", last_name: "Joe", email: "bob@joe.com", password_digest: "guac")
-puts "users done"
+#User.create(first_name: "Rachel", last_name: "Lum", email: "rlum894@gmail.com", password_digest: "potato")
+#User.create(first_name: "Bob", last_name: "Joe", email: "bob@joe.com", password_digest: "guac")
+#puts "users done"
 
 #Categories
 Category.create(name: "Core")

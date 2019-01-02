@@ -1,0 +1,26 @@
+<%= form_for @workout do |f|%>
+<%= f.label "Title:" %>
+<%= f.text_field :title %><br>
+
+<!-- This will become available only in the show page, accessible through update -->
+<%= f.label "Sets:" %>
+<%= f.number_field :sets %><br>
+
+<%= f.label "Exercises" %>
+  <% if @workout.exercises.empty? %>
+  <p><%="There are no exercises listed in this workout. Ooops! Gains = 0."%></p>
+  <% else %>
+    <ul>
+    <% @workout.exercises.each do |exercise| %>
+      <li><%= exercise.name %></li>
+    <% end %><br>
+    </ul>
+    <% end %>
+
+<%= f.label "Notes:" %>
+<%= f.text_area :notes %><br>
+
+<%= f.submit "Update Workout"%>
+<% end %>
+
+<%= button_to "Add an exercise", add_exercise_path, method: :get, params:{workout_id: @workout.id} %><br>
