@@ -2,11 +2,17 @@
 <%= f.label "Title:" %>
 <%= f.text_field :title %><br>
 
+<!-- This will become available only in the show page, accessible through update -->
 <%= f.label "Sets:" %>
-<%= f.text_field :sets %><br>
+<%= f.number_field :sets %><br>
 
+
+<!-- This will become available only in the show page, accessible through update -->
 <%= f.label "Notes:" %>
 <%= f.text_area :notes %><br>
 
-<%= f.submit %>
+<%= f.submit "Create Workout"%>
+
+<p><%= flash[:notice] %></p>
+
 <% end %>

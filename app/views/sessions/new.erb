@@ -1,0 +1,19 @@
+<h1>Hello! Welcome to weWorkout</h1>
+
+<%= flash[:notice] %>
+
+<h2>Please log in below</h2>
+<h3>Or
+<%= link_to 'sign up', new_user_path %> to make a new account. </h3>
+
+<%= form_for @user, url: login_path, method: :post do |f| %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %><br>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %><br>
+
+
+  <%= f.submit 'Log In' %>
+<% end %>

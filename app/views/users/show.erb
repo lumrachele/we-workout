@@ -1,11 +1,13 @@
 <h2>Welcome, <%= @user.first_name%> <%=@user.last_name%>!</h2>
 
-<p><%= @user.email %></p>
-<p><%= @user.birthday %></p>
+<p>Email: <%= @user.email %></p>
 
 <h3>You have <%= pluralize(@user.workouts.count, "workout")%> </h3>
 <p><%= link_to "Create a new workout", new_workout_path%></p>
 
+<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+<%= submit_tag "logout" %>
+<% end %>
 
 <!--link_to @user.workouts.count, user/workouts/ -->
 <!-- The show page will also display -->

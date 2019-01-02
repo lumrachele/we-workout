@@ -8,8 +8,11 @@
 <%= f.label "Email:" %>
 <%= f.text_field :email %><br>
 
-<%= f.label "Birthday:" %>
-<%= f.text_field :birthday %><br>
+<%= f.label "Password:" %>
+<%= f.password_field :password %><br>
+
+<%= f.label "Password Confirmation:" %>
+<%= f.password_field :password_confirmation %><br>
 
 <%= f.submit %>
 <% end %>

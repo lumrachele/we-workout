@@ -1,7 +1,16 @@
-<%= @workout.title %>
-<%= @workout.sets %>
-<%= @workout.notes %>
-<%= @workout.user %>
+<%= flash[:success] %>
 
-<!-- display exercises -->
-<!-- link to individual exercises -->
+<h2><%= @workout.title %></h2>
+<h4>by <%= @workout.user.first_name %></h4>
+
+<h5><%= pluralize(@workout.sets, "Set") %></h5>
+
+<%= button_to "Add an exercise", exercises_path, :method => "get" %>
+<ul>
+<% @workout.exercises.each do |exercise| %>
+  <li>link_to exercise.name, exercise</li> <!-- links to indiv exercise -->
+<% end %>
+</ul>
+
+
+<%= @workout.notes %>

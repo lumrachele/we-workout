@@ -8,7 +8,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+    if !@user
+      redirect_to new_user_path
+    else
+      session[:user_id] = @user.id
     redirect_to @user
+  end
   end
 
   def show
@@ -18,7 +23,7 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:name, :email, :birthday)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 
   def find_user
