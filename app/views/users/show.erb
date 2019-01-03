@@ -1,21 +1,31 @@
-<h1>Welcome, <%= @user.first_name%> <%=@user.last_name%>!</h1>
+<div class="container">
+  <!-- want to display profile photo here. option to change photo-->
+  <h1>Welcome, <%= @user.first_name%> <%=@user.last_name%>!</h1>
+  <p>Email: <%= @user.email %></p>
+</div>
 
-<p>Email: <%= @user.email %></p>
+<div class="container" id="myworkouts">
 
-<h2>My Workouts</h2>
+  <h2>My Workouts</h2>
+    <div class="flex-container">
+      <% @workouts.each do |workout| %>
+          <div class="flex-item">
+            <!-- display image for that workout -->
+            <h3><%= link_to workout.title, workout_path(workout) %></h3></div>
+          <!-- will change this to a clickable image-->
+        <% end %>
+    </div><!-- close flex container for grid-->
 
-<ul>
-  <% @workouts.each do |workout| %>
-    <li><h3><%= link_to workout.title, workout_path(workout) %></h3></li>
-  <!-- will change this to a clickable image-->
-  <% end %>
-</ul>
 <br>
+
+<div class=""> <!-- style this as a button -->
 <p><%= link_to "Create a new workout", new_workout_path%></p>
+</div>
 
 <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
 <%= submit_tag "logout" %>
 <% end %>
+</div>
 
 <!--link_to @user.workouts.count, user/workouts/ -->
 <!-- The show page will also display -->

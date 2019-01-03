@@ -1,19 +1,38 @@
-<h1>Hello! Welcome to weWorkout</h1>
-
-<%= flash[:notice] %>
-
-<h2>Please log in below</h2>
-<h3>Or
-<%= link_to 'sign up', new_user_path %> to make a new account. </h3>
-
-<%= form_for @user, url: login_path, method: :post do |f| %>
-
-  <%= f.label :email %>
-  <%= f.text_field :email %><br>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %><br>
 
 
-  <%= f.submit 'Log In' %>
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
 <% end %>
+
+<div class="container">
+
+  <div class="float-left" id="outer">
+
+    <div id="inner">
+
+    <h3>Please log in below</h3>
+    <h4>Or
+    <%= link_to 'sign up', new_user_path %> to make a new account. </h4>
+<br>
+<br>
+    <%= form_for @user, url: login_path, method: :post do |f| %>
+
+      <%= f.label "Email:" %>
+      <%= f.text_field :email %><br>
+
+      <%= f.label "Password:" %>
+      <%= f.password_field :password %><br>
+
+      <%= f.submit 'Log In' %>
+    <% end %>
+
+    </div>
+
+
+  </div>
+  <div class="float-right">
+    <img src="/victor-freitas-546919-unsplash.jpg" width="500" height = "auto" class "img-fluid" alt="https://unsplash.com/@victorfreitas?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"><br>
+  </div>
+
+
+</div>

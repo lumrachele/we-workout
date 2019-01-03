@@ -4,9 +4,11 @@
 
 <h1><%= @workout.title %></h1>
 <h2>by <%= @workout.user.first_name %></h2>
-
+<br>
+<%= image_tag @workout.image, style: "height:40%;width:40%;" %>
+<br>
 <h2><%= pluralize(@workout.sets, "Set") %></h2>
-
+<br>
 <!-- The workout will display all of the exercises -->
 <ul>
 <% @workout.exercises.each do |exercise| %>
