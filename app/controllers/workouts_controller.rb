@@ -1,9 +1,9 @@
 class WorkoutsController < ApplicationController
   #before_action :find_workout, only: [:show, :edit, :update]
 
-  def index
-    @workouts = Workout.all
-  end
+  # def index
+  #   @workouts = @user.workouts
+  # end
 
   def new
     @workout = Workout.new
@@ -25,6 +25,7 @@ class WorkoutsController < ApplicationController
 
   def show
     @user = User.find_by(id: current_user.id)
+    #@workouts = @user.workouts
     @workout = Workout.find_by(id: params[:id])
   end
 
@@ -50,8 +51,6 @@ class WorkoutsController < ApplicationController
       @exercises = Exercise.all
     end
     #end of search function logic
-
-    #@workout.exercises << exercise_id
   end
 
 
@@ -62,21 +61,23 @@ class WorkoutsController < ApplicationController
     redirect_to add_exercise_path
   end
 
+  # def delete_exercise
+  #   @workout = Workout.find_by(id: params[:id])
+  #   @exercise = Exercise.find_by(id: params[:workout][:exercise][:exercise_id])
+  #   @workout.exercises.delete(@exercise)
+  #   redirect_to edit_workout_path
+  # end
+
   def update
-    #byebug
     @workout = Workout.find_by(id: params[:id])
     @workout.update(workout_params)
-    #@exercise = Exercise.find_by(id: params[:exercise_id])
-    #if @exercise
-    #  @workout.exercises << @exercise
-    #end
     redirect_to @workout
   end
 
 private
 
   def workout_params
-    params.require(:workout).permit(:id, :title, :sets, :notes, :user_id, exercises_attributes:[:id, :name])
+    params.require(:workout).permit(:id, :title, :sets, :notes, :user_id, exercises_attributes:[:id, :name, :_destroy])
   end
 
   # def find_workout

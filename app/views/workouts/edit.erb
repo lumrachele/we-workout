@@ -1,3 +1,5 @@
+<h1>Edit Your Workout</h1>
+
 <%= form_for @workout do |f|%>
 <%= f.label "Title:" %>
 <%= f.text_field :title %><br>
@@ -12,15 +14,17 @@
   <% else %>
     <ul>
     <% @workout.exercises.each do |exercise| %>
-      <li><%= exercise.name %></li>
-    <% end %><br>
+      <li><%=exercise.name%></li>
+
+  <% end %><br>
     </ul>
     <% end %>
-
+    <%= link_to "Add an exercise", add_exercise_path, method: :get, params:{workout_id: @workout.id} %><br>
+<br>
 <%= f.label "Notes:" %>
-<%= f.text_area :notes %><br>
+<br>
+<%= f.text_area :notes %>
+<br>
 
 <%= f.submit "Update Workout"%>
 <% end %>
-
-<%= button_to "Add an exercise", add_exercise_path, method: :get, params:{workout_id: @workout.id} %><br>

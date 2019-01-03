@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @workouts = @user.workouts
     render :show
   end
 

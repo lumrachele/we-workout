@@ -2,10 +2,10 @@
   <%= flash[:success] %>
 <% end %>
 
-<h2><%= @workout.title %></h2>
-<h4>by <%= @workout.user.first_name %></h4>
+<h1><%= @workout.title %></h1>
+<h2>by <%= @workout.user.first_name %></h2>
 
-<h5><%= pluralize(@workout.sets, "Set") %></h5>
+<h2><%= pluralize(@workout.sets, "Set") %></h2>
 
 <!-- The workout will display all of the exercises -->
 <ul>
@@ -18,8 +18,10 @@
 
 <h4>Notes:</h4>
 <%= @workout.notes %>
-
+<br>
 <%= button_to "edit this workout", edit_workout_path, :method => "get" %>
+<br>
 
+<%= link_to "My Profile", @user %>
 
 <!-- Will have an option to edit the workout, or delete it-->

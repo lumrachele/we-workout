@@ -1,8 +1,16 @@
-<h2>Welcome, <%= @user.first_name%> <%=@user.last_name%>!</h2>
+<h1>Welcome, <%= @user.first_name%> <%=@user.last_name%>!</h1>
 
 <p>Email: <%= @user.email %></p>
 
-<h3>You have <%= pluralize(@user.workouts.count, "workout")%> </h3>
+<h2>My Workouts</h2>
+
+<ul>
+  <% @workouts.each do |workout| %>
+    <li><h3><%= link_to workout.title, workout_path(workout) %></h3></li>
+  <!-- will change this to a clickable image-->
+  <% end %>
+</ul>
+<br>
 <p><%= link_to "Create a new workout", new_workout_path%></p>
 
 <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>

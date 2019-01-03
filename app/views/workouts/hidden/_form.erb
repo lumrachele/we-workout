@@ -1,0 +1,27 @@
+<%= form_for @workout do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <br/>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :sets %>
+    <br/>
+    <%= f.number_field :sets %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %>
+    <br/>
+    <%= f.text_area :notes %>
+  </div>
+  <h3>Exercises</h3>
+  <div id='exercises'>
+    <%= f.fields_for :exercises do |exercise| %>
+      <%= render 'exercise_fields', f: exercise %>
+    <div class='links'>
+      <%= link_to_add_association 'add exercise', f, :exercises %>
+    </div>
+    <% end %>
+  </div>
+  <%= f.submit 'Save' %>
+<% end %>
