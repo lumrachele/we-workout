@@ -1,0 +1,34 @@
+<div class="form">
+  <%= form_for @user do |f|%>
+  <div class="form-group">
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name, placeholder: "first name", :class => "form-control"  %><br>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name, placeholder: "last name", :class => "form-control"%><br>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :email %>
+  <%= f.email_field :email, placeholder: "name@example.com", :class => "form-control"  %><br>
+  </div>
+
+  <div class="form-group">
+  <%= f.label "Password" %>
+  <%= f.password_field :password, placeholder: "password", :class => "form-control", :id =>"exampleFormControlSelect1"%><br>
+  </div>
+
+  <div class="form-group">
+  <%= f.label "Password Confirmation" %>
+  <%= f.password_field :password_confirmation, placeholder: "confirm password", :class => "form-control", :id =>"exampleFormControlSelect1"%><br>
+  </div>
+
+  <div class="form-group">
+  <%= f.submit "Submit", :class => "btn btn-secondary" %>
+  <% end %>
+  </div>
+
+
+</div>
