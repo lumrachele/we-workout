@@ -1,5 +1,5 @@
 class Workout < ApplicationRecord
   belongs_to :user
-  belongs_to :exercise
-
+  has_and_belongs_to_many :exercises
+  accepts_nested_attributes_for :exercises, allow_destroy: true
 end

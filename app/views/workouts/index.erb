@@ -1,0 +1,10 @@
+<h1>My Workouts</h1>
+
+<% @workouts.all.each do |workout| %>
+<h3><%= link_to workout.title, workout_path(workout) %></h3>
+<!-- will change this to a clickable image-->
+<% end %>
+
+<br>
+
+<%= link_to "Back", @user %>

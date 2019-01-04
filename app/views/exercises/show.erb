@@ -1,0 +1,17 @@
+
+<h1 class="my-4"><%= @exercise.name %></h1>
+
+ <div class="row">
+  <div class="col-md-6">
+<p><%= image_tag("workout_photos/#{@exercise.image}", class:"img-fluid", width:'500', height:"auto" )%></p>
+  </div>
+  <div class="col-md-6">
+<p><%= @exercise.description %></p>
+  </div>
+
+</div>
+
+<!-- when you're on a show page of an-->
+<!-- indiv exercise, you will be able to -->
+<!-- add it to a current or new workout-->
+<!-- -->

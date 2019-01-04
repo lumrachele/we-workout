@@ -1,0 +1,51 @@
+<div class="float-right logout">
+<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+<%= submit_tag "Log Out", :class=> "btn btn-info" %>
+<% end %>
+</div>
+
+<br>
+<!-- Jumbotron Header -->
+<header class="jumbotron my-4">
+  <h1 class="display-3">Welcome, <%= @user.first_name%> <%=@user.last_name%>!</h1>
+    <!-- want to display profile photo here. option to change photo-->
+  <p class="lead">This time, it's all about you. Let's get moving.</p>
+  <a href="<%= new_workout_path %>" class="btn btn-secondary btn-lg">Create a new workout!</a>
+</header>
+
+<!-- Page Features -->
+<div class="row text-center">
+
+
+  <% @workouts.each do |workout| %>
+  <div class="col-lg-3 col-md-6 mb-4">
+    <div class="card">
+        <%= image_tag("workout_photos/#{workout.image}", class:"card-img-top") %>
+
+      <div class="card-body">
+        <h4 class="card-title"><%=workout.title %></h4>
+        <p class="card-text"><%= workout.notes%></p>
+      </div>
+      <div class="card-footer">
+        <a href="<%= workout_path(workout)%>" class="btn btn-secondary">View Workout</a>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+
+</div>
+<!-- /.row -->
+
+</div>
+
+
+
+
+<!--link_to @user.workouts.count, user/workouts/ -->
+<!-- The show page will also display -->
+<!-- a link to a user's workouts (in grid form)-->
+<!-- which is the index page of that user's -->
+<!-- workouts. User will be able to click -->
+<!-- on an individual workout which will redirect -->
+<!-- to that workout's show page -->

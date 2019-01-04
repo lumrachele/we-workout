@@ -1,0 +1,45 @@
+<h2 class="my-3">Edit Your Workout</h2>
+
+<div class="form col-md-8">
+
+
+<%= form_for @workout do |f|%>
+<div class="form-group">
+<%= f.label "Title" %>
+<%= f.text_field :title, :class => "form-control" %><br>
+</div>
+<!-- This will become available only in the show page, accessible through update -->
+<div class="form-group">
+<%= f.label "Sets" %>
+<%= f.number_field :sets, :class => "form-control" %><br>
+
+<div class="form-group">
+<%= f.label "Exercises" %>
+  <% if @workout.exercises.empty? %>
+  <p class="red"><%="Add an exercise to get started."%></p>
+  <% else %>
+    <ul>
+    <% @workout.exercises.each do |exercise| %>
+      <li><%=exercise.name%></li>
+
+  <% end %><br>
+    </ul>
+    <% end %>
+
+<div class="form-group">
+    <%= link_to "Add an exercise", add_exercise_path, method: :get, params:{workout_id: @workout.id}, :class=> "btn btn-secondary"%>
+</div>
+<div class="form-group">
+<br>
+<%= f.label "Notes" %>
+<%= f.text_area :notes, :class => "form-control", :rows =>"3" %>
+</div>
+<br>
+
+<div class="form-group">
+<%= f.submit "Update Workout", :class => "btn btn-info" %>
+  <% end %>
+</div>
+
+
+</div>

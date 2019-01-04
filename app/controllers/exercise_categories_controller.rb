@@ -1,2 +1,4 @@
 class ExerciseCategoriesController < ApplicationController
+
+  
 end
