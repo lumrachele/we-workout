@@ -1,16 +1,22 @@
 <h1>Edit Your Workout</h1>
 
+<div class="form col-md-8">
+
+
 <%= form_for @workout do |f|%>
-<%= f.label "Title:" %>
-<%= f.text_field :title %><br>
-
+<div class="form-group">
+<%= f.label "Title" %>
+<%= f.text_field :title, :class => "form-control" %><br>
+</div>
 <!-- This will become available only in the show page, accessible through update -->
-<%= f.label "Sets:" %>
-<%= f.number_field :sets %><br>
+<div class="form-group">
+<%= f.label "Sets" %>
+<%= f.number_field :sets, :class => "form-control" %><br>
 
+<div class="form-group">
 <%= f.label "Exercises" %>
   <% if @workout.exercises.empty? %>
-  <p><%="Ooops! There are no exercises listed in this workout."%></p>
+  <p><%="There are no exercises listed in this workout."%></p>
   <% else %>
     <ul>
     <% @workout.exercises.each do |exercise| %>
@@ -20,13 +26,20 @@
     </ul>
     <% end %>
 
+<div class="form-group">
+    <%= link_to "Add an exercise", add_exercise_path, method: :get, params:{workout_id: @workout.id}, :class=> "btn btn-secondary"%>
+</div>
+<div class="form-group">
+<br>
+<%= f.label "Notes" %>
+<%= f.text_area :notes, :class => "form-control", :rows =>"3" %>
+</div>
+<br>
 
-    <%= link_to "Add an exercise", add_exercise_path, method: :get, params:{workout_id: @workout.id}%>
-<br>
-<%= f.label "Notes:" %>
-<br>
-<%= f.text_area :notes %>
-<br>
+<div class="form-group">
+<%= f.submit "Update Workout", :class => "btn btn-primary" %>
+  <% end %>
+</div>
 
-<%= f.submit "Update Workout" %>
-<% end %>
+
+</div>

@@ -15,11 +15,61 @@
 @import "bootstrap";
 // @import "bootstrap-sprockets";
 
+.background{
+  padding-top: .625rem #F4F4F4;
+  background-image: url('https://images.unsplash.com/photo-1522827144599-b1f5b28b2f52?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1488&q=80')
+}
 
+.container{
+  background-color: white;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 
+}
 
+.large{
+  font-size: 3.5rem;
+  padding: 1rem;
+  // font-family: tahoma;
+  font-weight: bold;
+}
 
+.form{
+  padding: 1rem;
+}
 
+.border{
+  border: 1px solid #CDCCCC;
+}
+
+.workout{
+  border-radius: 25px;
+  border: 2px solid #CDCCCC;
+  padding: 20px;
+  // width: 100%;
+  // height: 100%;
+}
+
+.foot{
+  height: 2rem;
+  transform: translate(5%, 0%);
+  border-bottom: .5rem;
+}
+
+// .link-to-text-color { color: gray; }
+
+// .card-body {
+//   display: flex;
+// }
+//
+// .flex {
+//   display: -ms-flexbox;
+//   display: flex; }
+//
+// .flex-column {
+//   -ms-flex-direction: column;
+//   flex-direction: column; }
+//
 
 
 // #inner {position: relative;

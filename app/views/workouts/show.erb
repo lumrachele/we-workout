@@ -2,15 +2,17 @@
   <p><%= flash[:success] %></p>
 <% end %>
 
-<a href="<%= user_path(@user) %>" class="btn btn-primary btn-lg">Back to My Workouts</a>
+<div class="workout">
 
-<div class="float-right">
-<%= button_to "edit this workout", edit_workout_path, :method => "get" %>
-</div>
+
+
+<a href="<%= user_path(@user) %>" class="btn btn-light btn-lg float-right">Back to My Workouts</a>
+
 
 <!-- Portfolio Item Heading -->
- <h1 class="my-4"><%= @workout.title %>
- </h1>
+<h1 class="my-4"> <span><%= @workout.title %>
+    <%= button_to "Edit", edit_workout_path, :method => "get", :class=> "btn btn-secondary" %></span></h1>
+
 
 
 
@@ -23,6 +25,10 @@
 
    <div class="col-md-4">
      <h3 class="my-3"><%= pluralize(@workout.sets, "Set")%></h3>
+
+
+
+     <br>
 
        <% if @workout.exercises.empty? %>
          <p>There are no exercises to be displayed. Edit this workout to add an exercise.</p>
@@ -40,4 +46,5 @@
  </div>
  <!-- /.row -->
 
+</div>
 <!-- Will have an option to delete it-->

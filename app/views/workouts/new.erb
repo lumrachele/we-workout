@@ -1,21 +1,29 @@
 <h2>New Workout</h2>
+
+<div class="form col-md-8">
+
+
+<div class="form-group">
 <%= form_for @workout do |f|%>
-  <%= f.label "Title:" %>
-  <%= f.text_field :title %><br>
+  <%= f.label "Title" %>
+  <%= f.text_field :title, placeholder: "example: Full Body Workout", :class => "form-control", :id =>"exampleFormControlSelect1"%><br>
+  </div>
 
   <!-- This will become available only in the show page, accessible through update -->
-  <%= f.label "Sets:" %>
-  <%= f.number_field :sets %><br>
+<div class="form-group">
+  <%= f.label "Number of Sets" %>
+  <%= f.number_field :sets, placeholder: "example: 4 sets", :class => "form-control", :id =>"exampleFormControlSelect1" %><br>
+  </div>
 
 
   <!-- This will become available only in the show page, accessible through update -->
+<div class="form-group">
   <%= f.label "Notes:" %>
-  <%= f.text_area :notes %><br>
+  <%= f.text_area :notes, placeholder: "example: Great workout! Definitely targets my core. Perfect for a sunny day.", :class => "form-control", :id=>"exampleFormControlTextarea1", :rows=>"3"%><br>
+  </div>
 
-  <%= f.submit "Create Workout"%>
-
-  <% if flash[:notice]%>
-    <p><%= flash[:notice] %></p>
-    <% end %>
+  <%= f.submit "Create Workout", :class=> "btn btn-secondary"%>
 
 <% end %>
+
+</div>

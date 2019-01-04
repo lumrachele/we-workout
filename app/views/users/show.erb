@@ -3,7 +3,7 @@
   <h1 class="display-3">Welcome, <%= @user.first_name%> <%=@user.last_name%>!</h1>
     <!-- want to display profile photo here. option to change photo-->
   <p class="lead">This time, it's all about you. Let's get moving.</p>
-  <a href="<%= new_workout_path %>" class="btn btn-primary btn-lg">Create a new workout!</a>
+  <a href="<%= new_workout_path %>" class="btn btn-secondary btn-lg">Create a new workout!</a>
 </header>
 
 <!-- Page Features -->
@@ -15,14 +15,12 @@
     <div class="card">
         <%= image_tag("workout_photos/#{workout.image}", class:"card-img-top") %>
 
-
-
       <div class="card-body">
         <h4 class="card-title"><%=workout.title %></h4>
         <p class="card-text"><%= workout.notes%></p>
       </div>
       <div class="card-footer">
-        <a href="<%= workout_path(workout)%>" class="btn btn-primary">View Workout</a>
+        <a href="<%= workout_path(workout)%>" class="btn btn-secondary">View Workout</a>
       </div>
     </div>
   </div>

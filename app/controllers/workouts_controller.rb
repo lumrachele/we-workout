@@ -11,8 +11,13 @@ class WorkoutsController < ApplicationController
 
   def create
     @user = User.find_by(id: current_user.id)
-    @workout = @user.workouts.create(workout_params)
-    #byebug
+    @workout = @user.workouts.create(
+      id: params[:workout][:id],
+      title: params[:workout][:title],
+      sets: params[:workout][:sets],
+      notes: params[:workout][:notes],
+      image: "#{Dir.entries("app/assets/images/workout_photos").sample}"
+    )
     if !@workout
       flash[:notice] = "Workout could not be created."
       return redirect_to new_workout_path
