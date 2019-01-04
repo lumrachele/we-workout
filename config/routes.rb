@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
 
+  get '/about', to: 'nav#about', as: "about"
+  get '/workspace', to: 'nav#workspace', as: "workspace"
+  get '/mission', to: 'nav#mission', as: "mission"
+  get '/contact', to: 'nav#contact', as: "contact"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
