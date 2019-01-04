@@ -1,38 +1,35 @@
 
+<!-- Portfolio Item Heading -->
+ <h1 class="my-4">Workouts That Work For You
+ </h1>
 
-<% if flash[:notice] %>
-  <%= flash[:notice] %>
-<% end %>
+ <!-- Portfolio Item Row -->
+ <div class="row">
 
-<div class="container">
+   <div class="col-md-8">
+     <img class="img-fluid" src="victor-freitas-546919-unsplash.jpg" width="500" height = "auto" >
+   </div>
 
-  <div class="float-left" id="outer">
+   <div class="col-md-4">
 
-    <div id="inner">
+     <h3 class="my-3">Log In</h3>
+     <p>Or <%= link_to 'sign up', new_user_path %> to make a new account.
+       <% if flash[:notice] %>
+         <%= flash[:notice] %>
+       <% end %>
+     <br>
 
-    <h3>Please log in below</h3>
-    <h4>Or
-    <%= link_to 'sign up', new_user_path %> to make a new account. </h4>
-<br>
-<br>
-    <%= form_for @user, url: login_path, method: :post do |f| %>
+     <%= form_for @user, url: login_path, method: :post do |f| %>
 
-      <%= f.label "Email:" %>
-      <%= f.text_field :email %><br>
+       <%= f.label "Email:" %>
+       <%= f.text_field :email, placeholder: "email address" %><br>
 
-      <%= f.label "Password:" %>
-      <%= f.password_field :password %><br>
+       <%= f.label "Password:" %>
+       <%= f.password_field :password, placeholder: "password" %><br>
 
-      <%= f.submit 'Log In' %>
-    <% end %>
+       <%= f.submit 'Log In' %>
+     <% end %>
+     </p>
 
-    </div>
-
-
-  </div>
-  <div class="float-right">
-    <img src="/victor-freitas-546919-unsplash.jpg" width="500" height = "auto" class "img-fluid" alt="https://unsplash.com/@victorfreitas?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"><br>
-  </div>
-
-
-</div>
+ </div>
+ <!-- /.row -->

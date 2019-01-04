@@ -1,31 +1,40 @@
-<div class="container">
-  <!-- want to display profile photo here. option to change photo-->
-  <h1>Welcome, <%= @user.first_name%> <%=@user.last_name%>!</h1>
-  <p>Email: <%= @user.email %></p>
+<!-- Jumbotron Header -->
+<header class="jumbotron my-4">
+  <h1 class="display-3">Welcome, <%= @user.first_name%> <%=@user.last_name%>!</h1>
+    <!-- want to display profile photo here. option to change photo-->
+  <p class="lead">This time, it's all about you. Let's get moving.</p>
+  <a href="<%= new_workout_path %>" class="btn btn-primary btn-lg">Create a new workout!</a>
+</header>
+
+<!-- Page Features -->
+<div class="row text-center">
+
+
+  <% @workouts.each do |workout| %>
+  <div class="col-lg-3 col-md-6 mb-4">
+    <div class="card">
+        <%= image_tag("workout_photos/#{workout.image}", class:"card-img-top") %>
+
+
+
+      <div class="card-body">
+        <h4 class="card-title"><%=workout.title %></h4>
+        <p class="card-text"><%= workout.notes%></p>
+      </div>
+      <div class="card-footer">
+        <a href="<%= workout_path(workout)%>" class="btn btn-primary">View Workout</a>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+
 </div>
-
-<div class="container" id="myworkouts">
-
-  <h2>My Workouts</h2>
-    <div class="flex-container">
-      <% @workouts.each do |workout| %>
-          <div class="flex-item">
-            <!-- display image for that workout -->
-            <h3><%= link_to workout.title, workout_path(workout) %></h3></div>
-          <!-- will change this to a clickable image-->
-        <% end %>
-    </div><!-- close flex container for grid-->
-
-<br>
-
-<div class=""> <!-- style this as a button -->
-<p><%= link_to "Create a new workout", new_workout_path%></p>
-</div>
-
+<!-- /.row -->
 <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
 <%= submit_tag "logout" %>
 <% end %>
-</div>
+
 
 <!--link_to @user.workouts.count, user/workouts/ -->
 <!-- The show page will also display -->

@@ -1,29 +1,43 @@
 <% if flash[:success] %>
-  <%= flash[:success] %>
+  <p><%= flash[:success] %></p>
 <% end %>
 
-<h1><%= @workout.title %></h1>
-<h2>by <%= @workout.user.first_name %></h2>
-<br>
-<%= image_tag @workout.image, style: "height:40%;width:40%;" %>
-<br>
-<h2><%= pluralize(@workout.sets, "Set") %></h2>
-<br>
-<!-- The workout will display all of the exercises -->
-<ul>
-<% @workout.exercises.each do |exercise| %>
-  <li><%= exercise.name %></li>
-<% end %>
-</ul>
+<a href="<%= user_path(@user) %>" class="btn btn-primary btn-lg">Back to My Workouts</a>
 
-<br>
-
-<h4>Notes:</h4>
-<%= @workout.notes %>
-<br>
+<div class="float-right">
 <%= button_to "edit this workout", edit_workout_path, :method => "get" %>
-<br>
+</div>
 
-<%= link_to "My Profile", @user %>
+<!-- Portfolio Item Heading -->
+ <h1 class="my-4"><%= @workout.title %>
+ </h1>
 
-<!-- Will have an option to edit the workout, or delete it-->
+
+
+ <!-- Portfolio Item Row -->
+ <div class="row">
+
+   <div class="col-md-8">
+     <%= image_tag("workout_photos/#{@workout.image}", class:"img-fluid", width:'500', height:"auto") %>
+   </div>
+
+   <div class="col-md-4">
+     <h3 class="my-3"><%= pluralize(@workout.sets, "Set")%></h3>
+
+       <% if @workout.exercises.empty? %>
+         <p>There are no exercises to be displayed. Edit this workout to add an exercise.</p>
+       <% else %>
+         <ul>
+         <% @workout.exercises.each do |exercise| %>
+            <li><%= exercise.name %></li>
+         <% end %>   <!--  end of loop displaying exercises-->
+         </ul>
+        <% end %>
+     <h3 class="my-3">Notes:</h3>
+     <p><%= @workout.notes %></p>
+   </div>
+
+ </div>
+ <!-- /.row -->
+
+<!-- Will have an option to delete it-->

@@ -1,34 +1,56 @@
-<h2>All Exercises</h2>
+<!-- Page Heading -->
+<h1 class="my-4">Add Exercises to Your Workout<br>
+  <i><%=@workout.title%>
+</i></h1>
 
-<h3><%= "Current exercises for #{@workout.title}:"  %></h3>
-<% if @workout.exercises.empty? %>
-  <p>Wow, such empty.</p>
-  <% else %>
-    <ul>
-      <% @workout.exercises.each do |exercise| %>
-        <li><%=exercise.name%></li>
-      <% end %>
-    </ul>
-<% end %>
-<br>
-<%= link_to "Return to Edit Workout", edit_workout_path %>
-<br>
-<%= form_tag(add_exercise_path, method: :get) do %>
-<%= label_tag "Select by Category" %>
-<%= select_tag :category_id, options_from_collection_for_select(@categories, :id, :name, params[:category_id]), {:include_blank => "Choose a Category"} %><br>
-<%= label_tag "Search Exercise by Name" %>
-<%= text_field_tag :search, params[:search] %>
-<%= submit_tag "Search"%>
-<% end %>
+<div class="row">
+  <div class="col-lg-4 col-sm-6 portfolio-item">
 
-<br>
-
-<% @exercises.each do |exercise| %>
-  <p><%= image_tag exercise.image, style: "height:40%;width:40%;" %></p>
-  <%= link_to exercise.name, exercise_path(exercise) %>
-  <%= button_to "Add exercise to workout", add_the_exercises_path, method: :patch, params:{workout:{exercise:{exercise_id: exercise.id, exercise_name: exercise.name}}} %>
-
+  <% if @workout.exercises.empty? %>
+    <p>Wow, such empty.</p>
+    <% else %>
+      <ul>
+        <% @workout.exercises.each do |exercise| %>
+          <li><%=exercise.name%></li>
+        <% end %>
+      </ul>
   <% end %>
+  </div>
+</div>
+
+<h3 class="my-4"><%= link_to "Save exercises and return to Edit Workout", edit_workout_path %></h3>
+
+<div class="row my-4">
+  <%= form_tag(add_exercise_path, method: :get) do %>
+
+  <%= label_tag "Select by Category" %>
+  <%= select_tag :category_id, options_from_collection_for_select(@categories, :id, :name, params[:category_id]), {:include_blank => "Choose a Category"} %>
+  <br>
+  <%= label_tag "Search Exercise by Name" %>
+  <%= text_field_tag :search, params[:search], placeholder: "example: plank"%>
+  <%= submit_tag "Search"%>
+  <% end %>
+</div>
+
+<div class="row">
+  <% @exercises.each do |exercise| %>
+  <div class="col-lg-4 col-sm-6 portfolio-item">
+    <div class="card h-100">
+      <%= image_tag("workout_photos/#{exercise.image}", class:"card-img-top", width:'700', height:"auto") %>
+      <div class="card-body">
+        <h4 class="card-title">
+          <a href=<%="#{exercise_path(exercise)}"%>><%=exercise.name%></a>
+        </h4>
+        <p class="card-text"> <%= exercise.description %></p>
+        <%= button_to "Add exercise to workout", add_the_exercises_path, method: :patch, params:{workout:{exercise:{exercise_id: exercise.id, exercise_name: exercise.name}}} %>
+      </div>
+
+    </div>
+  </div>
+  <% end %>
+</div>
+<!-- /.row -->
+
 
 <!-- I want each exercise to have a checkbox or button to add it-->
 <!-- to the current workout. This workout will be accessed through-->

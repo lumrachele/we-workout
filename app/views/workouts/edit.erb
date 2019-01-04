@@ -10,7 +10,7 @@
 
 <%= f.label "Exercises" %>
   <% if @workout.exercises.empty? %>
-  <p><%="There are no exercises listed in this workout. Ooops! Gains = 0."%></p>
+  <p><%="Ooops! There are no exercises listed in this workout."%></p>
   <% else %>
     <ul>
     <% @workout.exercises.each do |exercise| %>
@@ -19,12 +19,14 @@
   <% end %><br>
     </ul>
     <% end %>
-    <%= link_to "Add an exercise", add_exercise_path, method: :get, params:{workout_id: @workout.id} %><br>
+
+
+    <%= link_to "Add an exercise", add_exercise_path, method: :get, params:{workout_id: @workout.id}%>
 <br>
 <%= f.label "Notes:" %>
 <br>
 <%= f.text_area :notes %>
 <br>
 
-<%= f.submit "Update Workout"%>
+<%= f.submit "Update Workout" %>
 <% end %>

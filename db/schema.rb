@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_01_02_160921) do
   create_table "exercises", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "image", default: "photo-1434754205268-ad3b5f549b11.jpeg"
+    t.string "image", default: "photo-1527634311077-9943f7df34e1.jpeg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2019_01_02_160921) do
     t.integer "sets"
     t.string "notes"
     t.integer "user_id"
-    t.string "image", default: "photo-1480264104733-84fb0b925be3.jpeg"
+    t.string "image", default: "photo-1520334435999-d992362bb3ad.jpeg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

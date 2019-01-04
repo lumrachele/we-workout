@@ -3,7 +3,7 @@ class CreateExercises < ActiveRecord::Migration[5.2]
     create_table :exercises do |t|
       t.string :name
       t.string :description
-      t.string :image, default: Dir.entries("public/workout_photos").sample
+      t.string :image, default: Dir.entries("app/assets/images/workout_photos").sample
 
       t.timestamps
     end
