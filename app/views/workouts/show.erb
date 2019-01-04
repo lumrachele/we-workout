@@ -1,17 +1,15 @@
+
+
 <% if flash[:success] %>
   <p><%= flash[:success] %></p>
 <% end %>
 
-<div class="workout">
-
-
-
-<a href="<%= user_path(@user) %>" class="btn btn-light btn-lg float-right">Back to My Workouts</a>
-
+<div class="work">
+<a href="<%= user_path(@user) %>" class="btn btn-light btn-lg float-right">Back to My Profile</a>
 
 <!-- Portfolio Item Heading -->
-<h1 class="my-4"> <span><%= @workout.title %>
-    <%= button_to "Edit", edit_workout_path, :method => "get", :class=> "btn btn-secondary" %></span></h1>
+<span><h1 class="my-4"> <%= @workout.title %>
+    <%= button_to "Edit", edit_workout_path, :method => "get", :class=> "btn btn-info" %></h1></span>
 
 
 
@@ -19,19 +17,18 @@
  <!-- Portfolio Item Row -->
  <div class="row">
 
-   <div class="col-md-8">
+   <div class="col-md-6">
      <%= image_tag("workout_photos/#{@workout.image}", class:"img-fluid", width:'500', height:"auto") %>
    </div>
 
-   <div class="col-md-4">
+   <div class="col-md-6">
      <h3 class="my-3"><%= pluralize(@workout.sets, "Set")%></h3>
 
-
-
-     <br>
-
+<h3 class="my-3">Exercises:</h3>
+<div>
        <% if @workout.exercises.empty? %>
-         <p>There are no exercises to be displayed. Edit this workout to add an exercise.</p>
+         <p class="red">Let's get moving!</p>
+         <p class="red">Edit this workout to add an exercise.</p>
        <% else %>
          <ul>
          <% @workout.exercises.each do |exercise| %>
@@ -39,8 +36,13 @@
          <% end %>   <!--  end of loop displaying exercises-->
          </ul>
         <% end %>
+        </div>
+        <div class="form-group">
+
+
      <h3 class="my-3">Notes:</h3>
-     <p><%= @workout.notes %></p>
+     <p class="form-control" id="exampleFormControlTextarea1" rows="3"><%= @workout.notes %></p>
+     </div>
    </div>
 
  </div>

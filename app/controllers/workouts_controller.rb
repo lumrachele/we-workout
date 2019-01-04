@@ -10,6 +10,7 @@ class WorkoutsController < ApplicationController
   end
 
   def create
+  #  byebug
     @user = User.find_by(id: current_user.id)
     @workout = @user.workouts.create(
       id: params[:workout][:id],

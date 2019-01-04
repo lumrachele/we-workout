@@ -1,3 +1,10 @@
+<div class="float-right logout">
+<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+<%= submit_tag "Log Out", :class=> "btn btn-info" %>
+<% end %>
+</div>
+
+<br>
 <!-- Jumbotron Header -->
 <header class="jumbotron my-4">
   <h1 class="display-3">Welcome, <%= @user.first_name%> <%=@user.last_name%>!</h1>
@@ -29,9 +36,10 @@
 
 </div>
 <!-- /.row -->
-<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
-<%= submit_tag "logout" %>
-<% end %>
+
+</div>
+
+
 
 
 <!--link_to @user.workouts.count, user/workouts/ -->

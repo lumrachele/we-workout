@@ -1,4 +1,4 @@
-<h1>Edit Your Workout</h1>
+<h2 class="my-3">Edit Your Workout</h2>
 
 <div class="form col-md-8">
 
@@ -16,7 +16,7 @@
 <div class="form-group">
 <%= f.label "Exercises" %>
   <% if @workout.exercises.empty? %>
-  <p><%="There are no exercises listed in this workout."%></p>
+  <p class="red"><%="Add an exercise to get started."%></p>
   <% else %>
     <ul>
     <% @workout.exercises.each do |exercise| %>
@@ -37,7 +37,7 @@
 <br>
 
 <div class="form-group">
-<%= f.submit "Update Workout", :class => "btn btn-primary" %>
+<%= f.submit "Update Workout", :class => "btn btn-info" %>
   <% end %>
 </div>
 
