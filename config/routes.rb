@@ -11,12 +11,14 @@ Rails.application.routes.draw do
 
   resources :exercises, only: [:show]
   resources :users, only: [:new, :create, :show]
+  # get '/users/:id', to: 'users#show', as: "current_user_path"
 
   root 'sessions#new'
   get '/login', to: 'sessions#new', as: "login"
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
 
+  # get '/home', to: 'users#show', as: "home"
   get '/about', to: 'nav#about', as: "about"
   get '/workspace', to: 'nav#workspace', as: "workspace"
   get '/mission', to: 'nav#mission', as: "mission"

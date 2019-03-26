@@ -14,12 +14,14 @@ class UsersController < ApplicationController
     else
       session[:user_id] = @user.id
     redirect_to @user
-  end
+    end
   end
 
   def show
+    # @user = User.find_by(id: session[:user_id])
     @workouts = @user.workouts
     render :show
+    # redirect_to @user
   end
 
 private
@@ -29,7 +31,8 @@ private
   end
 
   def find_user
-    @user = User.find(params[:id])
+    @user = User.find_by(id: session[:user_id])
+    # @user = User.find(params[:id])
   end
 
 
