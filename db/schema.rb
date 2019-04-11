@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_01_02_160921) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -31,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_01_02_160921) do
   create_table "exercises", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "image", default: "photo-1518214598173-1666bc921d66.jpeg"
+    t.string "image", default: "photo-1527634311077-9943f7df34e1.jpeg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,7 +54,7 @@ ActiveRecord::Schema.define(version: 2019_01_02_160921) do
     t.integer "sets"
     t.string "notes"
     t.integer "user_id"
-    t.string "image", default: "photo-1511809870860-4d2806eb1908.jpeg"
+    t.string "image", default: "photo-1520334435999-d992362bb3ad.jpeg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

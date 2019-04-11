@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @user = User.find_by(id: session[:user_id])
+    @user = User.find_by(id: session[:user_id])
     @workouts = @user.workouts
     render :show
     # redirect_to @user
