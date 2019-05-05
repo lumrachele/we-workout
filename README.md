@@ -28,27 +28,33 @@ To get started with this app, simply fork and clone this repository. Remember to
 There are six models used for this application:
 
 <h3>User</h3>
+
 The ```User``` model has attributes for first name, last name, email, and password digest. This allows for proper authentication. A user can log in with an existing account via email and password, or create a new account with first name, last name, email, and password.
 
 Key Controller Methods: new, create, show
 
 <h3>Category</h3>
+
 The ```Category``` model assists in filtering the different exercises in the database. It is stored as a category_id in each exercise, and will refer to either upper body, lower body, or core exercises.
 
 <h3>Exercise</h3>
+
 Each instance of ```Exercise``` has a name, description, and image. All exercises are seeded data, with seeded image urls provided by Google. Users can add specific exercises to their workouts.
 
 Key Controller Methods: index, show
 
 <h3>Workout</h3>
+
 A ```Workout``` instance has attributes title, sets, notes, user_id, and image. A user can create a workout and edit any of its attributes. Since it contains the user_id attribute, this eliminates the need for a join table.
 
 Key Controller Methods: new, create, show, edit, update, add_exercise (custom), add_the_exercises (custom)
 
 <h3>ExerciseCategory</h3>
+
 The ```ExerciseCategory``` model is the join table for exercises and categories, since some exercises can have many categories, and vice versa. This provides ease of filtering.
 
 <h3>ExerciseWorkout</h3>
+
 The ```ExerciseWorkout``` join table establishes the relationship when a user adds an exercise to a workout, since the exercises can belong to many workouts.
 
 
