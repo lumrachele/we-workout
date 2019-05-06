@@ -1,6 +1,6 @@
 ## WeWorkout
 
-This Rails application follows an MVC Structure to create a complete working application. It includes both standard RESTful  and custom routes, and communicates with the PostgreSQL Database. <a href=https://vimeo.com/328025663>Demo Video</a>
+WeWorkout provides an easy solution for users to customize and make edits to their personal workouts. This Rails application follows an MVC Structure to create a complete working application. It includes both standard RESTful  and custom routes, and communicates with the PostgreSQL Database. <a href=https://vimeo.com/328025663>Demo Video</a>
 
 
 <h2>Contents</h2>
